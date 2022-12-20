@@ -1,0 +1,8 @@
+{{each audio}}
+<li>
+    <span class="chipplayer-list-cur" style="background-color: {{ $value.theme || theme }};"></span>
+    <span class="chipplayer-list-index">{{ $index + index }}</span>
+    <span class="chipplayer-list-title">{{ $value.name }}</span>
+    <span class="chipplayer-list-author">{{ $value.artist }}</span>
+</li>
+{{/each}}

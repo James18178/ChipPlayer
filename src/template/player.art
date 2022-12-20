@@ -1,0 +1,147 @@
+{{ if !options.fixed }}
+<div class="chipplayer-body">
+    <div class="chipplayer-pic" style="{{ if cover  }}background-image: url(&quot;{{ cover }}&quot;);{{ /if }}background-color: {{ options.theme }};">
+        <div class="chipplayer-button chipplayer-play">{{@ icons.play }}</div>
+    </div>
+    <div class="chipplayer-info">
+        <div class="chipplayer-music">
+            <span class="chipplayer-title">No audio</span>
+            <span class="chipplayer-includeIcon"></span>
+            <span class="chipplayer-author"></span>
+        </div>
+        <div class="chipplayer-lrc">
+            <div class="chipplayer-lrc-contents" style="transform: translateY(0); -webkit-transform: translateY(0);"></div>
+        </div>
+        <div class="chipplayer-controller">
+            <div class="chipplayer-bar-wrap">
+                <div class="chipplayer-bar">
+                    <div class="chipplayer-loaded" style="width: 0"></div>
+                    <div class="chipplayer-played" style="width: 0; background: {{ options.theme }};">
+                        <span class="chipplayer-thumb" style="background: {{ options.theme }};">
+                            <span class="chipplayer-loading-icon">{{@ icons.loading }}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="chipplayer-time">
+                <span class="chipplayer-time-inner">
+                    <span class="chipplayer-ptime">00:00</span> / <span class="chipplayer-dtime">00:00</span>
+                </span>
+                <span class="chipplayer-icon chipplayer-icon-back">
+                    {{@ icons.skip }}
+                </span>
+                <span class="chipplayer-icon chipplayer-icon-play">
+                    {{@ icons.play }}
+                </span>
+                <span class="chipplayer-icon chipplayer-icon-forward">
+                    {{@ icons.skip }}
+                </span>
+                <div class="chipplayer-volume-wrap">
+                    <button type="button" class="chipplayer-icon chipplayer-icon-volume-down">
+                        {{@ icons.volumeDown }}
+                    </button>
+                    <div class="chipplayer-volume-bar-wrap">
+                        <div class="chipplayer-volume-bar">
+                            <div class="chipplayer-volume" style="height: 80%; background: {{ options.theme }};"></div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="chipplayer-icon chipplayer-icon-order">
+                    {{ if options.order === 'list' }}{{@ icons.orderList }}{{ else if options.order === 'random' }}{{@ icons.orderRandom }}{{ /if }}
+                </button>
+                <button type="button" class="chipplayer-icon chipplayer-icon-loop">
+                    {{ if options.loop === 'one' }}{{@ icons.loopOne }}{{ else if options.loop === 'all' }}{{@ icons.loopAll }}{{ else if options.loop === 'none' }}{{@ icons.loopNone }}{{ /if }}
+                </button>
+                <button type="button" class="chipplayer-icon chipplayer-icon-menu">
+                    {{@ icons.menu }}
+                </button>
+                <button type="button" class="chipplayer-icon chipplayer-icon-lrc">
+                    {{@ icons.lrc }}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="chipplayer-notice"></div>
+    <div class="chipplayer-miniswitcher"><button class="chipplayer-icon">{{@ icons.right }}</button></div>
+</div>
+<ol class="chipplayer-list{{ if options.listFolded }} chipplayer-list-hide{{ /if }}">
+    {{ include './list-item.art' getObject({
+        theme: options.theme,
+        audio: options.audio,
+        index: 1
+    }) }}
+</ol>
+{{ else }}
+<ol class="chipplayer-list{{ if options.listFolded }} chipplayer-list-hide{{ /if }}">
+    {{ include './list-item.art' getObject({
+        theme: options.theme,
+        audio: options.audio,
+        index: 1
+    }) }}
+</ol>
+<div class="chipplayer-body">
+    <div class="chipplayer-pic" style="{{ if cover  }}background-image: url(&quot;{{ cover }}&quot;);{{ /if }}background-color: {{ options.theme }};">
+        <div class="chipplayer-button chipplayer-play">{{@ icons.play }}</div>
+    </div>
+    <div class="chipplayer-info" style="display: none;">
+        <div class="chipplayer-music">
+            <span class="chipplayer-title">No audio</span>
+            <span class="chipplayer-includeIcon"></span>
+            <span class="chipplayer-author"></span>
+        </div>
+        <div class="chipplayer-controller">
+            <div class="chipplayer-bar-wrap">
+                <div class="chipplayer-bar">
+                    <div class="chipplayer-loaded" style="width: 0"></div>
+                    <div class="chipplayer-played" style="width: 0; background: {{ options.theme }};">
+                        <span class="chipplayer-thumb" style="background: {{ options.theme }};">
+                            <span class="chipplayer-loading-icon">{{@ icons.loading }}</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="chipplayer-time">
+                <span class="chipplayer-time-inner">
+                    <span class="chipplayer-ptime">00:00</span> / <span class="chipplayer-dtime">00:00</span>
+                </span>
+                <span class="chipplayer-icon chipplayer-icon-back">
+                    {{@ icons.skip }}
+                </span>
+                <span class="chipplayer-icon chipplayer-icon-play">
+                    {{@ icons.play }}
+                </span>
+                <span class="chipplayer-icon chipplayer-icon-forward">
+                    {{@ icons.skip }}
+                </span>
+                <div class="chipplayer-volume-wrap">
+                    <button type="button" class="chipplayer-icon chipplayer-icon-volume-down">
+                        {{@ icons.volumeDown }}
+                    </button>
+                    <div class="chipplayer-volume-bar-wrap">
+                        <div class="chipplayer-volume-bar">
+                            <div class="chipplayer-volume" style="height: 80%; background: {{ options.theme }};"></div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="chipplayer-icon chipplayer-icon-order">
+                    {{ if options.order === 'list' }}{{@ icons.orderList }}{{ else if options.order === 'random' }}{{@ icons.orderRandom }}{{ /if }}
+                </button>
+                <button type="button" class="chipplayer-icon chipplayer-icon-loop">
+                    {{ if options.loop === 'one' }}{{@ icons.loopOne }}{{ else if options.loop === 'all' }}{{@ icons.loopAll }}{{ else if options.loop === 'none' }}{{@ icons.loopNone }}{{ /if }}
+                </button>
+                <button type="button" class="chipplayer-icon chipplayer-icon-menu">
+                    {{@ icons.menu }}
+                </button>
+                <button type="button" class="chipplayer-icon chipplayer-icon-lrc">
+                    {{@ icons.lrc }}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="chipplayer-notice"></div>
+    <div class="chipplayer-miniswitcher"><button class="chipplayer-icon">{{@ icons.right }}</button></div>
+</div>
+<div class="chipplayer-lrc">
+    <div class="chipplayer-lrc-contents" style="transform: translateY(0); -webkit-transform: translateY(0);"></div>
+</div>
+{{/if}}
