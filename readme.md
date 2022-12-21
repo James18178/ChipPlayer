@@ -6,6 +6,8 @@
 
 ChipPlayer is a powerful HTML5 Chip music player
 
+**[Demo](https://james18178.github.io/ChipPlayer/demo/)**
+
 Player core based **[game-music-emu](https://bitbucket.org/mpyne/game-music-emu/)**
 
 Layout based **[Aplayer](https://github.com/DIYgod/APlayer)**
